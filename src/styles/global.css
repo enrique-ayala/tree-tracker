@@ -1,0 +1,54 @@
+/* Reset & basic styles */
+body {
+  font-family: system-ui, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 2rem;
+  color: #333;
+}
+
+h1, h2, h3 {
+  margin: 0.5rem 0;
+  color: #2a6f2a;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Tree cards */
+.tree-card {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 1px 2px 5px rgba(0,0,0,0.1);
+}
+
+.tree-card img {
+  display: block;
+  margin: 0.5rem 0;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* Updates timeline */
+.tree-updates li {
+  border-left: 3px solid #2a6f2a;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.tree-updates li::before {
+  content: '';
+  position: absolute;
+  left: -6px;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  background: #2a6f2a;
+  border-radius: 50%;
+}
