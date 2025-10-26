@@ -1,20 +1,14 @@
 ---
-import TreeCard from "../components/TreeCard.astro";
+import Layout from '../components/Layout.astro';
+import TreeCard from '../components/TreeCard.astro';
 
-// Import all Markdown files from /trees
+// Load all markdown files from /trees
 const treeEntries = await Astro.glob('../trees/*.md');
 ---
 
-<html lang="en">
-  <head>
-    <link rel="stylesheet" href="/src/styles/global.css">
-
-    <title>My Tree Tracker 🌳</title>
-  </head>
-  <body>
-    <h1>My Trees</h1>
-    <div style="display: grid; gap: 1rem;">
-      {treeEntries.map(tree => <TreeCard {...tree.frontmatter} />)}
-    </div>
-  </body>
-</html>
+<Layout>
+  <h1>My Trees</h1>
+  <div style="display: grid; gap: 1rem;">
+    {treeEntries.map(tree => <TreeCard {...tree.frontmatter} />)}
+  </div>
+</Layout>
