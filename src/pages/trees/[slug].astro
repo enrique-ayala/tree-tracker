@@ -1,0 +1,30 @@
+---
+import Layout from '../../components/Layout.astro';
+import TreeCard from '../../components/TreeCard.astro';
+
+// Get slug from URL
+const { slug } = Astro.params;
+
+// Import all trees
+const treeFiles = await Astro.glob('../../trees/*.md');
+
+// Find the one matching slug
+const tree = treeFiles.find(t => t.file.split('/').pop().replace('.md','') === slug);
+
+if (!tree) {
+  throw new Error(`Tree not found: ${slug}`);
+}
+
+// Export getStaticPaths so Astro can generate the dynamic routes
+export async function getStaticPaths() {
+  const files = await Astro.glob('../../trees/*.md');
+  return files.map(f => {
+    const name = f.file.split('/').pop().replace('.md','');
+    return { params: { slug: name } };
+  });
+}
+---
+
+<Layout>
+  <TreeCard {...tree.frontmatter} />
+</Layout>

@@ -9,6 +9,18 @@ import '../styles/global.css';
     <title>Tree Tracker 🌳</title>
   </head>
   <body>
-    <slot /> <!-- This will render your pages -->
+    <div class="container">
+      <nav class="topbar">
+        <a class="brand" href="/">Tree Tracker 🌳</a>
+      </nav>
+
+      <main>
+        <slot /> <!-- This will render your pages -->
+      </main>
+
+      <footer class="site-footer">
+        <small>Monterrey NL</small>
+      </footer>
+    </div>
   </body>
 </html>

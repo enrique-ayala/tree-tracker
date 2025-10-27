@@ -17,6 +17,112 @@ ul {
   padding: 0;
 }
 
+/* layout container */
+.container {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* top bar */
+.topbar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.brand {
+  font-weight: 700;
+  color: #2a6f2a;
+  text-decoration: none;
+  font-size: 1.05rem;
+}
+
+/* page header */
+.page-header {
+  margin-bottom: 1.25rem;
+}
+.lead {
+  margin-top: 0.25rem;
+  color: #556b55;
+  font-size: 0.95rem;
+}
+
+/* grid for previews */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+/* preview card */
+.card-link {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.6rem;
+  border-radius: 10px;
+  transition: background 120ms ease, transform 120ms ease;
+}
+.card-link:hover,
+.card-link:focus {
+  background: rgba(40, 120, 40, 0.04);
+  transform: translateY(-2px);
+}
+.preview-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 0.75rem;
+  border: 1px solid rgba(34,34,34,0.06);
+  box-shadow: 0 6px 18px rgba(34,34,34,0.04);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.preview-card:hover,
+.preview-card:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(34,34,34,0.07);
+}
+
+.thumb {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f6f6f6;
+  flex-shrink: 0;
+}
+
+/* card text */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.card-title-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.card-title {
+  margin: 0;
+  font-size: 1rem;
+  color: #1f4d1f;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.slug {
+  color: #6b6b6b;
+  font-size: 0.85rem;
+}
+
 /* Tree cards */
 .tree-card {
   background: #fff;
@@ -51,4 +157,14 @@ ul {
   height: 10px;
   background: #2a6f2a;
   border-radius: 50%;
+}
+
+/* Ensure list styles are consistent */
+.list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.list-item {
+  margin: 0 0 0.75rem 0;
 }

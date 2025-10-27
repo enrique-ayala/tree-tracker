@@ -5,10 +5,38 @@ import TreeCard from '../components/TreeCard.astro';
 // Load all markdown files from /trees
 const treeEntries = await Astro.glob('../trees/*.md');
 ---
-
 <Layout>
-  <h1>My Trees</h1>
-  <div style="display: grid; gap: 1rem;">
-    {treeEntries.map(tree => <TreeCard {...tree.frontmatter} />)}
-  </div>
+  <header class="page-header">
+    <h1> </h1>
+    <p class="lead">Track growth, photos and notes.</p>
+  </header>
+
+  <main class="list">
+    <ul>
+      {treeEntries.map(tree => {
+        const slug = tree.file.split('/').pop().replace('.md','');
+        // Normalized slug for display (collapses repeated hyphens); keep original slug for links
+        const displaySlug = slug.replace(/-+/g, '-').replace(/(^-|-$)/g, '');
+        const previewImage = tree.frontmatter.updates?.[0]?.image;
+        return (
+          <li class="list-item" key={slug}>
+            <a class="card-link" href={`/trees/${slug}`} aria-label={`Open ${tree.frontmatter.name}`}>
+              {previewImage && <img class="thumb" src={previewImage} alt={`${tree.frontmatter.name} thumbnail`} />}
+              <div class="card-body">
+                <div class="card-title-row">
+                  <h2 class="card-title">{tree.frontmatter.name}</h2>
+                </div>
+
+                {/* horizontal meta row: Photo is the thumb, species and plant date inline */}
+                <div class="meta">
+                  {tree.frontmatter.species && <span class="meta-item species">{tree.frontmatter.species}</span>} - 
+                  {tree.frontmatter.plantDate && <span class="meta-item plant-date">Planted {tree.frontmatter.plantDate}</span>}
+                </div>
+              </div>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  </main>
 </Layout>
