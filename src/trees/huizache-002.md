@@ -1,28 +1,28 @@
 ---
 name: "Huizache #002"
 species: "Vachellia farnesiana"
-plantDate: "2025-10-10"
-location: "Patio norte"
+plantDate: "2025-07-29"
+location: "Cerro - 25.594234,-100.268723"
 wateringIntervalDays: 7
 updates:
   - date: "2025-12-03"
-    title: "Transplante a lugar final"
+    title: "Transplant to final location"
     height_cm: 10
-    weather: "Soleado"
-    notes: "Transplanted with compost and river sand mix. Watered well."
+    weather: "Sunny"
+    notes: "Transplanted and watered well."
     image: "/images/huizache-002/2025-12-03.jpg"
 
   - date: "2025-12-17"
-    title: "2 semanas despues de transplante, primer riego."
+    title: "2 weeks after transplant, first watering."
     height_cm: 10
-    weather: "Soleado"
-    notes: "Varias hojas se cayeron. Lluvia por tres días."
+    weather: "Sunny"
+    notes: "Several leaves fell off. Rain for three days."
     image: "/images/huizache-002/2025-12-17.jpg"
 
   - date: "2025-12-23"
-    title: "Segundo riego"
+    title: "Second watering"
     height_cm: 10
-    weather: "24 grados"
-    notes: "Árbol se ve estable."
+    weather: "24 degrees"
+    notes: "Tree looks stable."
     image: "/images/huizache-002/2025-12-23.jpg"
 ---
