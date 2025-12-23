@@ -12,7 +12,11 @@ const { name, species, plantDate, updates } = Astro.props;
     {updates.map(update => (
       <li>
         <p><strong>{update.date}</strong> - {update.title}</p>
-        {update.image && <img src={update.image} alt={update.title} width="200" style="border-radius: 8px;" />}
+        {update.image && (
+          <a href={update.image} target="_blank" rel="noopener noreferrer">
+            <img src={update.image} alt={update.title} width="200" style="border-radius: 8px; cursor: pointer;" />
+          </a>
+        )}
         <p><em>Height:</em> {update.height_cm} cm</p>
         <p><em>Weather:</em> {update.weather}</p>
         <p>{update.notes}</p>
