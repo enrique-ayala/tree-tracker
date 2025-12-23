@@ -18,6 +18,13 @@ const treeEntries = await Astro.glob('../trees/*.md');
         // Normalized slug for display (collapses repeated hyphens); keep original slug for links
         const displaySlug = slug.replace(/-+/g, '-').replace(/(^-|-$)/g, '');
         const previewImage = tree.frontmatter.updates?.[0]?.image;
+        
+        // Calculate tree age based on last update date
+        const planted = new Date(tree.frontmatter.plantDate);
+        const lastUpdate = tree.frontmatter.updates && tree.frontmatter.updates.length > 0 
+          ? new Date(tree.frontmatter.updates[0].date) 
+          : new Date();
+        const ageInYears = ((lastUpdate - planted) / (1000 * 60 * 60 * 24 * 365.25)).toFixed(1);
         return (
           <li class="list-item" key={slug}>
             <a class="card-link" href={`/trees/${slug}`} aria-label={`Open ${tree.frontmatter.name}`}>
@@ -30,7 +37,7 @@ const treeEntries = await Astro.glob('../trees/*.md');
                 {/* horizontal meta row: Photo is the thumb, species and plant date inline */}
                 <div class="meta">
                   {tree.frontmatter.species && <span class="meta-item species">{tree.frontmatter.species}</span>} - 
-                  {tree.frontmatter.plantDate && <span class="meta-item plant-date">Planted {tree.frontmatter.plantDate}</span>}
+                  {tree.frontmatter.plantDate && <span class="meta-item plant-date">Planted {tree.frontmatter.plantDate} ({ageInYears} years old)</span>}
                 </div>
               </div>
             </a>

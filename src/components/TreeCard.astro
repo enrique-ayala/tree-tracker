@@ -1,11 +1,21 @@
 ---
 const { name, species, plantDate, updates } = Astro.props;
+
+// Calculate tree age based on last update date
+const getTreeAge = (plantDate, updates) => {
+  const planted = new Date(plantDate);
+  const lastUpdate = updates && updates.length > 0 ? new Date(updates[0].date) : new Date();
+  const ageInYears = (lastUpdate - planted) / (1000 * 60 * 60 * 24 * 365.25);
+  return ageInYears.toFixed(1);
+};
+
+const age = getTreeAge(plantDate, updates);
 ---
 
 <div class="tree-card">
   <h2>{name}</h2>
   <p><strong>Species:</strong> {species}</p>
-  <p><strong>Planted:</strong> {plantDate}</p>
+  <p><strong>Planted:</strong> {plantDate} ({age} years old)</p>
 
   <h3>Progress updates</h3>
   <ul class="tree-updates">
